@@ -67,6 +67,8 @@ namespace PluginsAPI
             Handler.OnPluginPostObjectMethod(obj);
         }
         [DllImport("user32.dll")]
+        private static extern void keybd_event(byte bVk, byte bScan, int dwFlags, int dwExtraInfo);
+        [DllImport("user32.dll")]
         public static extern IntPtr GetWindowThreadProcessId(IntPtr hWnd, out uint ProcessId);
 
         [DllImport("user32.dll")]
@@ -92,8 +94,24 @@ namespace PluginsAPI
         }
         protected void LeftClick(int delay)
         {
-            mouse_event(MouseFlags.LeftDown, 0, 0, 0, UIntPtr.Zero);
+            LeftDown();
             System.Threading.Thread.Sleep(delay);
+            LeftUp();
+        }
+        protected void RightDown()
+        {
+            mouse_event(MouseFlags.RightDown, 0, 0, 0, UIntPtr.Zero);
+        }
+        protected void RightUp()
+        {
+            mouse_event(MouseFlags.RightUp, 0, 0, 0, UIntPtr.Zero);
+        }
+        protected void LeftDown()
+        {
+            mouse_event(MouseFlags.LeftDown, 0, 0, 0, UIntPtr.Zero);
+        }
+        protected void LeftUp()
+        {
             mouse_event(MouseFlags.LeftUp, 0, 0, 0, UIntPtr.Zero);
         }
         protected void RightClick()
@@ -102,9 +120,9 @@ namespace PluginsAPI
         }
         protected void RightClick(int delay)
         {
-            mouse_event(MouseFlags.RightDown, 0, 0, 0, UIntPtr.Zero);
+            RightDown();
             System.Threading.Thread.Sleep(delay);
-            mouse_event(MouseFlags.RightUp, 0, 0, 0, UIntPtr.Zero);
+            RightUp();
         }
         protected void MouseMove(int x, int y)
         {
@@ -113,6 +131,14 @@ namespace PluginsAPI
         protected void AbsoluteMouseMove(int x, int y)
         {
             mouse_event(MouseFlags.Move | MouseFlags.Absolute, x, y, 0, UIntPtr.Zero);
+        }
+        protected void DownKey(Keys key)
+        {
+            keybd_event((byte)key, 0, 1, 0);
+        }
+        protected void UpKey(Keys key)
+        {
+            keybd_event((byte)key, 0, 1 | 2, 0);
         }
         protected System.Diagnostics.Process GetActiveProcess()
         {

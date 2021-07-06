@@ -20,7 +20,7 @@ namespace Tests
         {
             PluginUpdater pluginUpdater = new PluginUpdater();
             PluginClient pluginClient = new PluginClient(pluginUpdater);
-            AutoClicker auto = new AutoClicker();
+            NinjaBridge auto = new NinjaBridge(Keys.R);
             pluginClient.PluginLoad(auto);
             Console.ReadKey();
         }
@@ -50,6 +50,18 @@ namespace Tests
                     {
                         LeftClick();
                         Thread.Sleep(60);
+                    }
+                    else { break; }
+                }
+            }
+            if (IsKeyPressed(Keys.XButton2))
+            {
+                for (int i = 0; i < 25; i++)
+                {
+                    if (IsKeyPressed(Keys.XButton2))
+                    {
+                        LeftClick();
+                        Thread.Sleep(55);
                     }
                     else { break; }
                 }

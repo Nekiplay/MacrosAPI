@@ -9,10 +9,10 @@ using System.Windows.Forms;
 
 namespace Tests
 {
-    public class NinjaBridge : Plugin
+    public class WTFBridge : Plugin
     {
         private Keys key = Keys.None;
-        public NinjaBridge(Keys keys)
+        public WTFBridge(Keys keys)
         {
             this.key = keys;
         }
@@ -22,14 +22,9 @@ namespace Tests
             if (IsKeyPressed(key))
             {
                 RightClick();
-                DownKey(Keys.S);
-                Thread.Sleep(230);
-                DownKey(Keys.LShiftKey);
-                Thread.Sleep(210);
-                UpKey(Keys.S);
-                Thread.Sleep(5);
-                UpKey(Keys.LShiftKey);
-                RightClick();
+                Thread.Sleep(32);
+                MouseMove(600, -800);
+                Thread.Sleep(32);
             }
         }
     }

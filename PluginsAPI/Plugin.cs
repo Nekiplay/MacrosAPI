@@ -140,6 +140,10 @@ namespace PluginsAPI
         {
             keybd_event((byte)key, 0, 1 | 2, 0);
         }
+        protected void Sleep(int delay)
+        {
+            System.Threading.Thread.Sleep(delay);
+        }
         protected System.Diagnostics.Process GetActiveProcess()
         {
             IntPtr hwnd = GetForegroundWindow();

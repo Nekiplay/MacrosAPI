@@ -54,6 +54,14 @@ namespace MacrosConverter
                             ButtonStartDetect = true;
                         }
                     }
+                    else if (down == "RightDown 1")
+                    {
+                        if (language == MacrosConverter.Languages.CSharp)
+                        {
+                            done += "if (IsKeyPressed(Keys.RButton))\n{\n";
+                            ButtonStartDetect = true;
+                        }
+                    }
                     else if (down.StartsWith("KeyDown"))
                     {
                         Keys key = CPPButtonCodes.GetKey(int.Parse(Regex.Match(line, "KeyDown (.*)").Groups[1].Value.Split(' ')[0]));

@@ -77,6 +77,62 @@ namespace MacrosConverter
                     ValidLevel = 1337;
                     FileValid = true;
                 }
+                else if (line == "RightDown 1" && ValidLevel == 1337)
+                {
+                    if (language == MacrosConverter.Languages.CSharp)
+                    {
+                        if (ButtonStartDetect)
+                        {
+                            done += "   RightDown();" + "\n";
+                        }
+                        else
+                        {
+                            done += "RightDown(); " + "\n";
+                        }
+                    }
+                }
+                else if (line == "RightUp 1" && ValidLevel == 1337)
+                {
+                    if (language == MacrosConverter.Languages.CSharp)
+                    {
+                        if (ButtonStartDetect)
+                        {
+                            done += "   RightUp();" + "\n";
+                        }
+                        else
+                        {
+                            done += "RightUp(); " + "\n";
+                        }
+                    }
+                }
+                else if (line == "LeftDown 1" && ValidLevel == 1337)
+                {
+                    if (language == MacrosConverter.Languages.CSharp)
+                    {
+                        if (ButtonStartDetect)
+                        {
+                            done += "   LeftDown();" + "\n";
+                        }
+                        else
+                        {
+                            done += "LeftDown(); " + "\n";
+                        }
+                    }
+                }
+                else if (line == "LeftUp 1" && ValidLevel == 1337)
+                {
+                    if (language == MacrosConverter.Languages.CSharp)
+                    {
+                        if (ButtonStartDetect)
+                        {
+                            done += "   LeftUp();" + "\n";
+                        }
+                        else
+                        {
+                            done += "LeftUp(); " + "\n";
+                        }
+                    }
+                }
                 else if (line.StartsWith("MoveR") && ValidLevel == 1337)
                 {
                     string x = Regex.Match(line, "MoveR (.*)").Groups[1].Value.Split(' ')[0];

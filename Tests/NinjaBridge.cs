@@ -23,11 +23,11 @@ namespace Tests
             {
                 RightClick();
                 DownKey(Keys.S);
-                Thread.Sleep(230);
+                Sleep(230);
                 DownKey(Keys.LShiftKey);
-                Thread.Sleep(210);
+                Sleep(210);
                 UpKey(Keys.S);
-                Thread.Sleep(5);
+                Sleep(5);
                 UpKey(Keys.LShiftKey);
                 RightClick();
             }

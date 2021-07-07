@@ -22,13 +22,13 @@ namespace Tests
             if (IsKeyPressed(key))
             {
                 RightClick();
-                DownKey(Keys.S);
+                KeyDown(Keys.S);
                 Sleep(230);
-                DownKey(Keys.LShiftKey);
+                KeyDown(Keys.LShiftKey);
                 Sleep(210);
-                UpKey(Keys.S);
+                KeyUp(Keys.S);
                 Sleep(5);
-                UpKey(Keys.LShiftKey);
+                KeyUp(Keys.LShiftKey);
                 RightClick();
             }
         }

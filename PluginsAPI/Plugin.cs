@@ -132,11 +132,11 @@ namespace PluginsAPI
         {
             mouse_event(MouseFlags.Move | MouseFlags.Absolute, x, y, 0, UIntPtr.Zero);
         }
-        protected void DownKey(Keys key)
+        protected void KeyDown(Keys key)
         {
             keybd_event((byte)key, 0, 1, 0);
         }
-        protected void UpKey(Keys key)
+        protected void KeyUp(Keys key)
         {
             keybd_event((byte)key, 0, 1 | 2, 0);
         }

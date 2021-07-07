@@ -26,13 +26,13 @@ namespace Tests
                 MouseMove(-x, -y);
             Sleep(16);
             RightClick();
-            DownKey(key);
+            KeyDown(key);
             Sleep(235);
-            DownKey(Keys.LShiftKey);
+            KeyDown(Keys.LShiftKey);
             Sleep(150);
-            UpKey(key);
+            KeyUp(key);
             Sleep(15);
-            UpKey(Keys.LShiftKey);
+            KeyUp(Keys.LShiftKey);
             if (!revert)
                 MouseMove(-x, y);
             else

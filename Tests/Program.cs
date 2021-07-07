@@ -20,7 +20,7 @@ namespace Tests
         {
             PluginUpdater pluginUpdater = new PluginUpdater();
             PluginClient pluginClient = new PluginClient(pluginUpdater);
-            LegitCPS auto = new LegitCPS(Keys.XButton2, 15, 20);
+            LegitCPS auto = new LegitCPS(Keys.XButton2, 14, 20);
             pluginClient.PluginLoad(auto);
             Console.ReadKey();
         }

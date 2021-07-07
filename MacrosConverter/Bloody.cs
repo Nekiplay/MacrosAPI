@@ -61,7 +61,7 @@ namespace MacrosConverter
                         {
                             if (language == MacrosConverter.Languages.CSharp)
                             {
-                                done += "if (IsKeyPressed(" + key+ "))\n{\n";
+                                done += "if (IsKeyPressed(Keys." + key+ "))\n{\n";
                                 ButtonStartDetect = true;
                             }
                         }

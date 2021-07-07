@@ -18,10 +18,13 @@ namespace Tests
         [STAThread]
         static void Main()
         {
-            PluginUpdater pluginUpdater = new PluginUpdater();
-            PluginClient pluginClient = new PluginClient(pluginUpdater);
-            LegitCPS auto = new LegitCPS(Keys.XButton2, 14, 20);
-            pluginClient.PluginLoad(auto);
+            FileInfo file = new FileInfo(@"C:\Users\Herob\Downloads\кс1 6 ак закуп.amc");
+            MacrosConverter.MacrosConverter converter = new MacrosConverter.MacrosConverter(file);
+            Console.WriteLine(converter.bloody.Convert(MacrosConverter.MacrosConverter.Languages.CSharp));
+            //PluginUpdater pluginUpdater = new PluginUpdater();
+            //PluginClient pluginClient = new PluginClient(pluginUpdater);
+            //LegitCPS auto = new LegitCPS(Keys.XButton2, 14, 20);
+            //pluginClient.PluginLoad(auto);
             Console.ReadKey();
         }
     }

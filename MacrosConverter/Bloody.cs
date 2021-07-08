@@ -181,11 +181,11 @@ namespace MacrosConverter
                         }
                         if (ButtonStartDetect)
                         {
-                            done += "   KeyUp(" + key + ");" + "\n";
+                            done += "   KeyUp(Keys." + key + ");" + "\n";
                         }
                         else
                         {
-                            done += "KeyUp(" + key + "); " + "\n";
+                            done += "KeyUp(Keys." + key + "); " + "\n";
                         }
                     }
                 }
@@ -196,11 +196,11 @@ namespace MacrosConverter
                     {
                         if (ButtonStartDetect)
                         {
-                            done += "   KeyDown(" + key + ");" + "\n";
+                            done += "   KeyDown(Keys." + key + ");" + "\n";
                         }
                         else
                         {
-                            done += "KeyDown(" + key + "); " + "\n";
+                            done += "KeyDown(Keys." + key + "); " + "\n";
                         }
                     }
                 }

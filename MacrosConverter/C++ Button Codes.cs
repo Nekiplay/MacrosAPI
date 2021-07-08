@@ -74,17 +74,5 @@ namespace MacrosConverter
                     return Keys.None;
             }
         }
-        public static int GetCode(Keys key)
-        {
-            switch (key)
-            {
-                case Keys.D0:
-                    return 0x30;
-                case Keys.D1:
-                    return 0x31;
-                default:
-                    return -1;
-            }
-        }
     }
 }

@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Bloody.cs" />
     <Compile Include="C++ Button Codes.cs" />
+    <Compile Include="Logitech.cs" />
     <Compile Include="MacrosConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

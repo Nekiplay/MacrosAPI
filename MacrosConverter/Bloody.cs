@@ -172,13 +172,6 @@ namespace MacrosConverter
                     Keys key = CPPButtonCodes.GetKey(int.Parse(Regex.Match(line, "KeyUp (.*)").Groups[1].Value.Split(' ')[0]));
                     if (language == MacrosConverter.Languages.CSharp)
                     {
-                        if (key == Keys.None)
-                        {
-                            if (int.Parse(Regex.Match(line, "KeyUp (.*)").Groups[1].Value.Split(' ')[0]) == 224)
-                            {
-       
-                            }
-                        }
                         if (ButtonStartDetect)
                         {
                             done += "   KeyUp(Keys." + key + ");" + "\n";

@@ -18,11 +18,9 @@ namespace Tests
         [STAThread]
         static void Main()
         {
-            /* Test Macro */
-            PluginUpdater pluginUpdater = new PluginUpdater();
-            PluginClient client = new PluginClient(pluginUpdater);
-            FastZoom ninjaBridge = new FastZoom();
-            client.PluginLoad(ninjaBridge);
+            FileInfo file = new FileInfo(@"C:\Users\Herob\Downloads\AK-47 CS GO.lua");
+            MacrosConverter.MacrosConverter converter = new MacrosConverter.MacrosConverter(file);
+            Console.WriteLine(converter.logitech.Convert(MacrosConverter.MacrosConverter.Languages.CSharp));
             Console.ReadKey();
         }
     }

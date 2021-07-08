@@ -32,8 +32,10 @@ namespace MacrosConverter
                 }
             }
             bloody = new Bloody(FileContent);
+            logitech = new Logitech(FileContent);
         }
         public Bloody bloody = null;
+        public Logitech logitech = null;
         public enum Languages
         {
             None,

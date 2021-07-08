@@ -18,9 +18,11 @@ namespace Tests
         [STAThread]
         static void Main()
         {
-            FileInfo file = new FileInfo(@"C:\Users\Herob\Downloads\FastZoom shot.amc");
-            MacrosConverter.MacrosConverter converter = new MacrosConverter.MacrosConverter(file);
-            Console.WriteLine(converter.bloody.Convert(MacrosConverter.MacrosConverter.Languages.CSharp));
+            /* Test Macro */
+            PluginUpdater pluginUpdater = new PluginUpdater();
+            PluginClient client = new PluginClient(pluginUpdater);
+            FastZoom ninjaBridge = new FastZoom();
+            client.PluginLoad(ninjaBridge);
             Console.ReadKey();
         }
     }

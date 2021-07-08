@@ -152,7 +152,7 @@ namespace MacrosConverter
                         }
                     }
                 }
-                else if (line.StartsWith("Delay") && line.EndsWith("ms") && ValidLevel == 1337)
+                else if (line.StartsWith("Delay") && ValidLevel == 1337)
                 {
                     int delay = int.Parse(Regex.Match(line, "Delay (.*) ms").Groups[1].Value);
                     if (language == MacrosConverter.Languages.CSharp)
@@ -172,6 +172,13 @@ namespace MacrosConverter
                     Keys key = CPPButtonCodes.GetKey(int.Parse(Regex.Match(line, "KeyUp (.*)").Groups[1].Value.Split(' ')[0]));
                     if (language == MacrosConverter.Languages.CSharp)
                     {
+                        if (key == Keys.None)
+                        {
+                            if (int.Parse(Regex.Match(line, "KeyUp (.*)").Groups[1].Value.Split(' ')[0]) == 224)
+                            {
+       
+                            }
+                        }
                         if (ButtonStartDetect)
                         {
                             done += "   KeyUp(" + key + ");" + "\n";

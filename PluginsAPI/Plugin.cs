@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -45,7 +46,7 @@ namespace PluginsAPI
         {
             UnLoadPlugin(this);
         }
-        protected void RunScript(string filename)
+        protected void RunScript(FileInfo filename)
         {
             Handler.PluginLoad(new Script(filename));
         }

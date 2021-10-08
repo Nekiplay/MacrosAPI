@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Reflection;
 using System.Text;
 using System.Threading;
@@ -17,54 +18,9 @@ namespace PluginsAPI
         private Thread thread;
         private Dictionary<string, object> localVars = new Dictionary<string, object>();
 
-        public Script(string filename)
+        public Script(FileInfo filename)
         {
-            ParseArguments(filename);
-        }
-
-        private void ParseArguments(string argstr)
-        {
-            List<string> args = new List<string>();
-            StringBuilder str = new StringBuilder();
-
-            bool escape = false;
-            bool quotes = false;
-
-            foreach (char c in argstr)
-            {
-                if (escape)
-                {
-                    if (c != '"')
-                        str.Append('\\');
-                    str.Append(c);
-                    escape = false;
-                }
-                else
-                {
-                    if (c == '\\')
-                        escape = true;
-                    else if (c == '"')
-                        quotes = !quotes;
-                    else if (c == ' ' && !quotes)
-                    {
-                        if (str.Length > 0)
-                            args.Add(str.ToString());
-                        str.Clear();
-                    }
-                    else str.Append(c);
-                }
-            }
-
-            if (str.Length > 0)
-                args.Add(str.ToString());
-
-            if (args.Count > 0)
-            {
-                file = args[0];
-                args.RemoveAt(0);
-                this.args = args.ToArray();
-            }
-            else file = "";
+            file = filename.FullName;
         }
 
         public static bool LookForScript(ref string filename)
@@ -73,15 +29,7 @@ namespace PluginsAPI
             char dir_slash = PluginClient.isUsingMono ? '/' : '\\';
             string[] files = new string[]
             {
-                filename,
-                filename + ".txt",
-                filename + ".cs",
-                "scripts" + dir_slash + filename,
-                "scripts" + dir_slash + filename + ".txt",
-                "scripts" + dir_slash + filename + ".cs",
-                "config" + dir_slash + filename,
-                "config" + dir_slash + filename + ".txt",
-                "config" + dir_slash + filename + ".cs",
+                filename
             };
 
             foreach (string possible_file in files)

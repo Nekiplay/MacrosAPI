@@ -49,7 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FastZoom.cs" />
     <Compile Include="LegitCPS.cs" />
     <Compile Include="NinjaBridge.cs" />
     <Compile Include="Program.cs" />
@@ -78,10 +77,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MacrosConverter\MacrosConverter.csproj">
-      <Project>{c674d6f1-7549-4a68-b5c3-c254860f1024}</Project>
-      <Name>MacrosConverter</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PluginsAPI\MacrosAPI.csproj">
       <Project>{02de83c5-407d-4f2e-92a9-f4d86ec9affc}</Project>
       <Name>MacrosAPI</Name>

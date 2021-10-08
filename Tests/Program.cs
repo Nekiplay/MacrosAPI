@@ -18,9 +18,6 @@ namespace Tests
         [STAThread]
         static void Main()
         {
-            FileInfo file = new FileInfo(@"C:\Users\Herob\Downloads\AK-47 CS GO.lua");
-            MacrosConverter.MacrosConverter converter = new MacrosConverter.MacrosConverter(file);
-            Console.WriteLine(converter.logitech.Convert(MacrosConverter.MacrosConverter.Languages.CSharp));
             Console.ReadKey();
         }
     }

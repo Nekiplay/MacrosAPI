@@ -47,6 +47,7 @@ namespace PluginsAPI
         #region Получение и отправка данных от плагина
         public Action OnUnloadPlugin { set; get; }
         public Action<object> OnPluginPostObject { set; get; }
+        public Action<Plugin> OnPluginLoad { set; get; }
         public void OnPluginPostObjectMethod(object ob)
         {
             if (OnPluginPostObject != null)
@@ -68,16 +69,17 @@ namespace PluginsAPI
                 temp.Add(b);
                 //new Plugin[] { b }
                 DispatchPluginEvent(bot => bot.Initialize(), temp);
+                if (OnPluginLoad != null)
+                {
+                    OnPluginLoad(b);
+                }
             }
         }
         public void PluginPostObject(Plugin b, object obj)
         {
             foreach (Plugin bot in plugins.ToArray())
             {
-                try
-                {
-                    bot.ReceivedObject(obj);
-                }
+                try { if (b == bot) { bot.ReceivedObject(obj); } }
                 catch { }
             }
         }

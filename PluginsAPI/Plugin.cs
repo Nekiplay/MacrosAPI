@@ -135,7 +135,7 @@ namespace PluginsAPI
         }
         protected void KeyDown(Keys key)
         {
-            keybd_event((byte)key, 0, 1, 0);
+            keybd_event((byte)key, 0, 1 | 0, 0);
         }
         protected void KeyUp(Keys key)
         {
